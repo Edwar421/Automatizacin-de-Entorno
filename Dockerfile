@@ -1,4 +1,4 @@
-# Imagen base más liviana
+# Imagen base liviana
 FROM node:18-slim
 
 # Crear directorio de trabajo en el contenedor

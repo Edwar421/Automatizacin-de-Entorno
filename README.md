@@ -4,7 +4,7 @@ Este proyecto es parte del reto **"Kata de Automatización de Entorno"**, cuyo o
 
 ---
 
-## Aplicación de ejemplo
+## Aplicación
 
 Se trata de una aplicación en **Node.js + Express** con 3 rutas:
 
@@ -30,7 +30,7 @@ EXPOSE 3000
 CMD ["node", "app.js"]
 ```
 
-### ▶Comandos para levantar el contenedor localmente
+### Comandos para levantar el contenedor localmente
 
 ```bash
 # Construir la imagen
@@ -115,4 +115,4 @@ terraform apply
 ## 📌 Autor
 
 **Nombre:** Edwar Santiago Vargas Rivera 
-**Repositorio:** [\[URL de tu repositorio GitHub\]](https://github.com/Edwar421/Automatizacin-de-Entorno)
+**Repositorio:** [\[URL del repositorio GitHub\]](https://github.com/Edwar421/Automatizacin-de-Entorno)
