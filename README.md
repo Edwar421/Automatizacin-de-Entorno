@@ -1,10 +1,10 @@
-# 🚀 Automatización de Entorno – DevOps Kata
+# Automatización de Entorno – DevOps Kata
 
 Este proyecto es parte del reto **"Kata de Automatización de Entorno"**, cuyo objetivo es demostrar habilidades en contenerización, CI/CD, y uso básico de Infraestructura como Código (IaC) con Terraform.
 
 ---
 
-## 📦 Aplicación de ejemplo
+## Aplicación de ejemplo
 
 Se trata de una aplicación en **Node.js + Express** con 3 rutas:
 
@@ -14,9 +14,9 @@ Se trata de una aplicación en **Node.js + Express** con 3 rutas:
 
 ---
 
-## 🐳 Contenerización con Docker
+## Contenerización con Docker
 
-### 🔧 Dockerfile
+### Dockerfile
 
 Se creó un `Dockerfile` con buenas prácticas para empaquetar la aplicación:
 
@@ -30,7 +30,7 @@ EXPOSE 3000
 CMD ["node", "app.js"]
 ```
 
-### ▶️ Comandos para levantar el contenedor localmente
+### ▶Comandos para levantar el contenedor localmente
 
 ```bash
 # Construir la imagen
@@ -44,35 +44,16 @@ Verifica en: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🔄 Automatización CI/CD con GitHub Actions
+## Automatización CI/CD con GitHub Actions
 
 Se configuró un pipeline en `.github/workflows/ci-cd.yml` con:
 
-- 🔍 **Test Job**: Validación de código con ESLint
-- 🏗️ **Build Job**: Construcción de la imagen Docker
-- 🚀 **Deploy Job**: Push de la imagen a Docker Hub
+- **Test Job**: Validación de código con ESLint
+- **Build Job**: Construcción de la imagen Docker
+- **Deploy Job**: Push de la imagen a Docker Hub
 
-### 📁 `.github/workflows/ci-cd.yml`
 
-```yaml
-on:
-  push:
-    branches: [main]
-
-jobs:
-  test:
-    ...
-
-  build:
-    needs: test
-    ...
-
-  deploy:
-    needs: build
-    ...
-```
-
-### 🔐 Secretos usados
+### Secretos usados
 
 - `DOCKER_USER` → Usuario de Docker Hub
 - `DOCKER_PASS` → Contraseña o token
@@ -81,11 +62,11 @@ Configurar en GitHub → Settings → Secrets → Actions
 
 ---
 
-## 📜 Infraestructura como Código (IaC) con Terraform
+## Infraestructura como Código (IaC) con Terraform
 
 Se creó un **módulo reutilizable** que simula el `docker tag` y `docker push`.
 
-### 📁 Estructura
+### Estructura
 
 ```
 modules/
@@ -99,22 +80,14 @@ infra/
 └── terraform.tfvars
 ```
 
-### ▶️ Ejecutar IaC localmente
+### Ejecutar IaC localmente
 
 ```bash
-cd infra/
+cd infra_Terraform/
 terraform init
 terraform apply
 ```
 
-### 📄 terraform.tfvars (ejemplo)
-
-```hcl
-image_name = "tu_usuario/automatizacion-de-entorno"
-tag        = "latest"
-```
-
----
 
 ## ✅ Criterios cumplidos
 
@@ -141,5 +114,5 @@ tag        = "latest"
 
 ## 📌 Autor
 
-**Nombre:** [Tu nombre aquí]  
-**Repositorio:** [URL de tu repositorio GitHub]
+**Nombre:** Edwar Santiago Vargas Rivera 
+**Repositorio:** [\[URL de tu repositorio GitHub\]](https://github.com/Edwar421/Automatizacin-de-Entorno)
