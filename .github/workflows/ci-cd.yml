@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    name: Validación del código con ESLint
+    name: 🧪 Validación del código con ESLint
     runs-on: ubuntu-latest
 
     steps:
@@ -26,22 +26,9 @@ jobs:
           npm install eslint
           npx eslint . || true
 
-  build:
-    name: Build de imagen Docker
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Clonar repositorio
-        uses: actions/checkout@v3
-
-      - name: Build de la imagen
-        run: |
-          docker build -t ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest .
-
   deploy:
-    name: Push de imagen a Docker Hub
-    needs: build
+    name: 🐳 Build y Push de imagen Docker
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -54,5 +41,7 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
 
-      - name: Push de imagen
-        run: docker push ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest
+      - name: Build y Push con Docker CLI
+        run: |
+          docker build -t ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest .
+          docker push ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest
