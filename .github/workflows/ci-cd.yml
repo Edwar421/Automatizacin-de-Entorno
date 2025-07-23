@@ -5,34 +5,38 @@ on:
     branches: [main]
 
 jobs:
-  build-and-deploy:
+  test:
+    name: Lint y pruebas básicas
     runs-on: ubuntu-latest
-
     steps:
-      - name: Descargar código del repositorio
-        uses: actions/checkout@v3
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '18'
-
-      - name: Instalar dependencias
-        run: npm install
-
-      - name: Ejecutar linter con ESLint
-        run: |
+      - run: npm install
+      - run: |
           npm install eslint
           npx eslint . || true
 
+  build:
+    name: Construir imagen Docker
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Docker Build
+        run: docker build -t ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest .
+
+  deploy:
+    name: Subir imagen a Docker Hub
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
       - name: Login a Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-
-      - name: Construir imagen Docker
-        run: docker build -t ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest .
-
-      - name: Push de la imagen a Docker Hub
+      - name: Docker Push
         run: docker push ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest
