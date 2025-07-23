@@ -104,7 +104,7 @@ terraform apply
 
 ---
 
-## 🖼️ Evidencias (capturas o video)
+## 🖼️ Evidencias
 
 - Imagen del contenedor corriendo localmente ✅
 - Logs del pipeline en GitHub Actions ✅

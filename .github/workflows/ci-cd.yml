@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    name: 🧪 Validación del código con ESLint
+    name: Validación del código con ESLint
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +27,7 @@ jobs:
           npx eslint . || true
 
   deploy:
-    name: 🐳 Build y Push de imagen Docker
+    name: Build y Push de imagen Docker
     needs: test
     runs-on: ubuntu-latest
 
