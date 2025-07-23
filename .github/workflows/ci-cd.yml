@@ -6,37 +6,42 @@ on:
 
 jobs:
   test:
-    name: Lint y pruebas básicas
+    name: 🧪 Validación del código con ESLint
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: npm install
-      - run: |
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar ESLint
+        run: |
           npm install eslint
           npx eslint . || true
 
-  build:
-    name: Construir imagen Docker
+  deploy:
+    name: 🐳 Build y Push de imagen Docker
     needs: test
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Docker Build
-        run: docker build -t ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest .
 
-  deploy:
-    name: Subir imagen a Docker Hub
-    needs: build
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
       - name: Login a Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-      - name: Docker Push
-        run: docker push ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest
+
+      - name: Build y Push con Docker CLI
+        run: |
+          docker build -t ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest .
+          docker push ${{ secrets.DOCKER_USER }}/automatizacion-de-entorno:latest
