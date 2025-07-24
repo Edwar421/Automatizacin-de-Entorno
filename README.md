@@ -18,6 +18,8 @@ Se trata de una aplicación en **Node.js + Express** con 3 rutas:
 
 ### Dockerfile
 
+Docker Field Completo
+
 Se creó un `Dockerfile` con buenas prácticas para empaquetar la aplicación:
 
 ```Dockerfile
