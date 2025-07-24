@@ -8,9 +8,9 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Rutas
-app.use('/', require('./routes/index'));
-app.use('/about', require('./routes/about'));
-app.use('/status', require('./routes/status'));
+app.use('/', require('./Routes/index'));
+app.use('/about', require('./Routes/about'));
+app.use('/status', require('./Routes/status'));
 
 // Iniciar servidor
 app.listen(port, () => {
