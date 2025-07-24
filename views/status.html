@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Estado del sistema</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>✅ Estado del Sistema</h1>
+    <p>Todo está funcionando correctamente.</p>
+    <div class="status-box">
+      <strong>Estado:</strong> OK<br>
+      <strong>Versión:</strong> 1.0.0<br>
+      <strong>Última actualización:</strong> <span id="timestamp"></span>
+    </div>
+    <a href="/">← Volver al inicio</a>
+  </div>
+
+  <script>
+    document.getElementById("timestamp").innerText = new Date().toLocaleString();
+  </script>
+</body>
+</html>
