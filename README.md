@@ -110,9 +110,12 @@ terraform apply
 - Logs del pipeline en GitHub Actions ✅
 - Salida de Terraform ✅
 
+Se puede encontrar en la carpeta de Scripts un PDF con estas evidencias.
+
 ---
 
 ## 📌 Autor
 
 **Nombre:** Edwar Santiago Vargas Rivera 
 **Repositorio:** [\[URL del repositorio GitHub\]](https://github.com/Edwar421/Automatizacin-de-Entorno)
+**App Desplegada AWS:** [\[URL app\]](http://automatizacion-env.eba-zbxf32wm.us-east-1.elasticbeanstalk.com)

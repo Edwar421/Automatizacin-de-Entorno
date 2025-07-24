@@ -13,8 +13,8 @@ RUN npm install --production
 # Copiar el resto del código
 COPY . .
 
-# Exponer el puerto de tu app (3000 por ejemplo)
+# Exponer el puerto 
 EXPOSE 3000
 
-# Comando por defecto para ejecutar la app
+# Comando por defecto para ejecutar
 CMD ["node", "app.js"]
