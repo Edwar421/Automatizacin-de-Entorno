@@ -8,9 +8,9 @@ Este proyecto es parte del reto **"Kata de Automatización de Entorno"**, cuyo o
 
 Se trata de una aplicación en **Node.js + Express** con 3 rutas:
 
-- `GET /` → Ruta principal (Hello World)
+- `GET /` → Ruta principal 
 - `GET /about` → Información básica
-- `GET /status` → Retorna estado y timestamp en JSON
+- `GET /status` → Retorna estado y timestamp 
 
 ---
 
@@ -49,8 +49,7 @@ Verifica en: [http://localhost:3000](http://localhost:3000)
 Se configuró un pipeline en `.github/workflows/ci-cd.yml` con:
 
 - **Test Job**: Validación de código con ESLint
-- **Build Job**: Construcción de la imagen Docker
-- **Deploy Job**: Push de la imagen a Docker Hub
+- **Deploy Job**: Build y Push de la imagen a Docker Hub
 
 
 ### Secretos usados
@@ -88,21 +87,6 @@ terraform init
 terraform apply
 ```
 
-
-## ✅ Criterios cumplidos
-
-| Requisito                                 | Estado |
-|-------------------------------------------|--------|
-| App sencilla (máx. 3 rutas)               | ✅     |
-| Dockerfile funcional                      | ✅     |
-| CI/CD con GitHub Actions                  | ✅     |
-| Push automático a Docker Hub              | ✅     |
-| IaC con Terraform                         | ✅     |
-| Uso de módulo reutilizable                | ✅     |
-| Separación de jobs en pipeline            | ✅     |
-| Uso de secretos en GitHub Actions         | ✅     |
-
----
 
 ## 🖼️ Evidencias
 
